@@ -49,7 +49,8 @@ describe('`Categories` class', () => {
       const record = { name: word() };
       categories.post(record);
       const { _id } = categories.get().find(r => r.name === record.name);
-      expect(categories.delete(_id)).toEqual(expect.objectContaining(record));
+      const deleted = categories.delete(_id);
+      expect(deleted).toEqual(expect.objectContaining(record));
     });
     it('should remove the element with the given `_id` from the database', () => {
       const record = { name: word() };
@@ -62,6 +63,16 @@ describe('`Categories` class', () => {
     it('should return an empty object if given an invalid `_id`', () => {
       const fakeId = 0;
       expect(categories.delete(fakeId)).toEqual({});
+    });
+  });
+  describe('`validate` method', () => {
+    it('should return `false` if an entry does not match the schema', () => {
+      const bad = { _id: 0, name: undefined };
+      expect(categories.validate(bad)).toBeFalsy();
+    });
+    it('should return `true` if an entry does match the schema', () => {
+      const good = { _id: word(), name: word() };
+      expect(categories.validate(good)).toBeTruthy();
     });
   });
 });

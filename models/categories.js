@@ -1,11 +1,10 @@
 'use strict';
 
 const uuid = require('uuid/v4');
-
-// const schema = {
-//   _id: { required: true, type: String },
-//   name: { required: true, type: String },
-// };
+const schema = {
+  _id: { required: true, type: 'string' },
+  name: { required: true, type: 'string', uppercase: true },
+};
 
 class Categories {
   constructor() {
@@ -44,7 +43,19 @@ class Categories {
     return {};
   }
 
-  validate() {}
+  validate(entry) {
+    return !Object.keys(schema)
+      .map(key => {
+        // This is not dynamic and won't adjust to most changes
+        // in our schema, unfortunately. Also, mongoose uses the
+        // String constructor, but 'str' instanceof String -> false.
+        if (entry[key] && typeof entry[key] === 'string') {
+          return true;
+        }
+        return false;
+      })
+      .includes(false);
+  }
 }
 
 module.exports = Categories;
