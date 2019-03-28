@@ -1,22 +1,15 @@
 'use strict';
 
 class Categories {
+  constructor() {}
 
-  constructor() {
-  }
+  get(_id) {}
 
-  get(_id) {
-  }
-  
-  post(record) {
-  }
+  post(record) {}
 
-  put(_id, record) {
-  }
+  put(_id, record) {}
 
-  delete(_id) {
-  }
-
+  delete(_id) {}
 }
 
 module.exports = Categories;
