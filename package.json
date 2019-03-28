@@ -4,7 +4,10 @@
   "description": "LAB - Data Modeling",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "jsdoc": "jsdoc -c ./docs/config/jsdoc.config.json",
+    "lint": "eslint **/*.js",
+    "test": "jest --coverage --verbose",
+    "test-watch": "jest --coverage --verbose --watch"
   },
   "repository": {
     "type": "git",
@@ -19,5 +22,10 @@
   "dependencies": {
     "express": "^4.16.4",
     "mongoose": "^5.4.20"
+  },
+  "devDependencies": {
+    "eslint": "^5.15.3",
+    "jest": "^24.5.0",
+    "jsdoc": "^3.5.5"
   }
 }
