@@ -1,7 +1,22 @@
 'use strict';
 
 const Product = require('./products.schema.js');
-
+/**
+ * @param  {} id
+ * @param  {} {letrecord;if(id
+ * @param  {} {record=Product.findById(id
+ * @param  {} ;}else{record=Product.find(
+ * @param  {} ;}returnrecord;}post(entry
+ * @param  {} {entry.name=entry.name.toUpperCase(
+ * @param  {} ;constp=newProduct(entry
+ * @param  {} ;returnp.save(
+ * @param  {} ;}put(id
+ * @param  {} entry
+ * @param  {} {entry.name=entry.name.toUpperCase(
+ * @param  {} ;constresult=Product.findByIdAndUpdate(id
+ * @param  {} entry
+ * @param  {true}} {new
+ */
 class Products {
   get(id) {
     let record;
