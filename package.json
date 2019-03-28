@@ -21,7 +21,8 @@
   "homepage": "https://github.com/charmedsatyr-401-advanced-javascript/lab-08#readme",
   "dependencies": {
     "express": "^4.16.4",
-    "mongoose": "^5.4.20"
+    "mongoose": "^5.4.20",
+    "uuid": "^3.3.2"
   },
   "devDependencies": {
     "eslint": "^5.15.3",
