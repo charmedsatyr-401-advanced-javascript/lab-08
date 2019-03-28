@@ -11,33 +11,116 @@
 
 #### Documentation
 * [jsdoc](./docs/index.html)
-* [swagger](./docs/swagger.json)
 
 ### Modules
-#### `index.js`
+`./models/categories.js`, identical to `./api-server/src/models/categories.js`
 
-##### Exported Values and Methods from `index.js`
-`index.js` provides a command line interface for an instance of the `Bitmap` class instantiated with `./assets/bald.bmp`
+`./models/products.js`, identical to `./api-server/src/models/products.js`
+
+`./models/products.schema.js`, identical to `./api-server-src/models/products.schema.js`
+
+#### `categories.js`
+##### Exported Values and Methods from `categories.js`
+`get()` -> `Array of objects` from database
+`get(id)` -> `object` from database
+
+`post(record)` -> new `record` from database
+
+`put(id, record)` -> modified `record` from database
+
+`delete(id)` -> deleted `record` from database
+
+`validate(entry)` -> Boolean
+This function returns a Boolean value determined by whether the entry matches the embedded schema.
+
+#### `products.js`
+##### Exported Values and Methods from `products.js`
+`get()` -> `Promise` -> `Array of objects` from database
+
+`get(id)` -> `Promise` -> `object` from database
+
+`post(record)` -> `Promise` -> new `record` from database
+
+`put(id, record)` -> `Promise` -> modified `record` from database
+
+`delete(id)` -> `Promise` -> deleted `record` from database
+
+#### `products.schema.js`
+##### Exported Values and Methods from `products.schema.js`
+Exports a `mongoose` Schema, `products`
 
 #### Running the app
-  * The app can be run out of the box on an instance of the `Bitmap` class created from `./assets/baldy.bmp`
-    * `node index.js` (no string argument) -> invokes the `parse` method
-    * The following commands can be used to invoke the `transform` method with functions exported from the indicated modules.
+* It is not clear how to run this app without errors.
+
+`nodemon ./api-server/index.js` is a good starting point.
 
 #### Tests
 * How do you run tests?
   * `npm run test`
-  * `npm run watch`
+  * `npm run test-watch`
   * `npm run lint`
+
 * What assertions were made?
-  * `bitmap.js`
-    * `parse()`
-      * Should return an object
-      * Should return an object with a `pixelArray` key that has a number value
+  * `categories.js`
+    *  `post` method
+    
+       ✓ add a record to the database and return what was posted
+    * `get` method
+
+      ✓ should return a record if given a valid `_id`
+
+      ✓ should return an array if given an invalid `_id`
+
+      ✓ should return an array if not given an argument
+    * `put` method
+
+      ✓ should return a modified record if given a valid `_id` and `record`
+
+      ✓ should return an empty object if given an invalid `_id`
+    * `delete` method
+
+      ✓ should remove the element with the given `_id` from the database
+
+      ✓ should return an empty object if given an invalid `_id`
+
+
+    * `validate` method
+
+      ✓ should return `false` if an entry does not match the schema
+
+      ✓ should return `true` if an entry does match the schema
+
+
+
+  
+  * `products.js`
+    * `post` method
+
+      ✓ add a record to the database and return what was posted (19ms)
+    * `get` method
+
+      ✓ should return a record if given a valid `id`
+
+      ✓ should return an array if given an invalid `id`
+
+      ✓ should return an array if not given an argument
+    * `put` method
+
+      ✓ should return a modified record if given a valid `id` and `record`
+
+
+
 
 * What assertions need to be / should be made?
-  * `index.js`
-    * The command line interface for `index.js`'s hardcoded `bitmap` instance has not been tested.
+  * `categories.js`
+    * `delete` method tests
+      * should return an empty object if given an invalid `_id`
+  * `products.js`
+    * `put` method tests
+      * should return an empty object if given an invalid `_id` (2ms)
+    * `delete` method tests
+  * Once the integration of these modules with the working server is complete, the functionality of the server routes and functionality should be fully tested.
+
 
 #### UML
 N/A
