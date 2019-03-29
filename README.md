@@ -45,14 +45,23 @@ This function returns a Boolean value determined by whether the entry matches th
 
 `delete(id)` -> `Promise` -> deleted `record` from database
 
+* `put` and `post` methods will capitalize any `name` entry.
+
 #### `products.schema.js`
 ##### Exported Values and Methods from `products.schema.js`
 Exports a `mongoose` Schema, `products`
 
 #### Running the app
-* It is not clear how to run this app without errors.
+* Navigate to the `./api-server` directory.
+* Start your Mongo database with `mongod --dbpath=./data --port 27017`.
+* Start the server with `nodemon index.js`
+* The `/categories` path is not operational because the routes currently expect promises, and the model returns values.
+* Using `httpie` package, you can make requests to the `/products` path using the `httpie` API.
+   * Example `GET`: `http :3000/products`
+   * Example `POST`: `echo '{"name": "toothbrush"}' | http post :3000/products`
+   * Example `PUT`: `echo '{"name": "toothbrush"}' | http put :3000/products/:id`, where `id` is the `_id` MongoDB has assigned to the toothbrush record.
+   * `DELETE` and `GET` methods on a specified `id` require more testing.
 
-`nodemon ./api-server/index.js` is a good starting point.
 
 #### Tests
 * How do you run tests?
