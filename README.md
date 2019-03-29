@@ -59,7 +59,7 @@ Exports a `mongoose` Schema, `products`
 * Using `httpie` package, you can make requests to the `/products` path using the `httpie` API.
    * Example `GET`: `http :3000/products`
    * Example `POST`: `echo '{"name": "toothbrush"}' | http post :3000/products`
-   * Example `PUT`: `echo '{"name": "toothbrush"}' | http put :3000/products/:id`, where `id` is the `_id` MongoDB has assigned to the toothbrush record.
+   * Example `PUT`: `echo '{"name": "electric toothbrush"}' | http put :3000/products/:id`, where `id` is the `_id` MongoDB has assigned to the previous toothbrush record.
    * `DELETE` and `GET` methods on a specified `id` require more testing.
 
 
