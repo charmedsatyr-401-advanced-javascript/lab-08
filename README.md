@@ -130,6 +130,7 @@ This module exports an Express `router` that handles all REST interactions with 
       ✓ should return a modified record if given a valid `id` and `record`
 
 * What assertions need to be / should be made?
+  * Handler functions in `category-routes.js` and `product-routes.js` need full testing.
   * `categories.js`
     * `delete` method tests
       * should return an empty object if given an invalid `_id`
