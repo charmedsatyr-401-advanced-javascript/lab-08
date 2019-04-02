@@ -19,6 +19,10 @@
 
 `./models/products.schema.js`, identical to `./api-server-src/models/products.schema.js`
 
+`./api-server/src/routes/category-routes.js`
+
+`./api-server/src/routes/product-routes.js`
+
 #### `categories.js`
 ##### Exported Values and Methods from `categories.js`
 `get()` -> `Array of objects` from database
@@ -50,6 +54,14 @@ This function returns a Boolean value determined by whether the entry matches th
 #### `products.schema.js`
 ##### Exported Values and Methods from `products.schema.js`
 Exports a `mongoose` Schema, `products`
+
+#### `./api-server/src/routes/category-routes.js`
+##### Exported Values and Methods from `category-routes.js`
+This module exports an Express `router` that handles all REST interactions with the `/categories` path, using the `Categories` model described above.
+
+#### `./api-server/src/routes/product-routes.js`
+##### Exported Values and Methods from `product-routes.js`
+This module exports an Express `router` that handles all REST interactions with the `/products` path, using the `Products` model described above.
 
 #### Running the app
 * Navigate to the `./api-server` directory.
@@ -117,9 +129,6 @@ Exports a `mongoose` Schema, `products`
 
       ✓ should return a modified record if given a valid `id` and `record`
 
-
-
-
 * What assertions need to be / should be made?
   * `categories.js`
     * `delete` method tests
@@ -129,7 +138,6 @@ Exports a `mongoose` Schema, `products`
       * should return an empty object if given an invalid `_id` (2ms)
     * `delete` method tests
   * Once the integration of these modules with the working server is complete, the functionality of the server routes and functionality should be fully tested.
-
 
 #### UML
 N/A
