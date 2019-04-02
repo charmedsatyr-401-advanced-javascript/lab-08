@@ -1,0 +1,36 @@
+{
+  "name": "lab-08",
+  "version": "1.0.0",
+  "description": "LAB - Data Modeling",
+  "main": "index.js",
+  "scripts": {
+    "jsdoc": "jsdoc -c ./docs/config/jsdoc.config.json",
+    "lint": "eslint '**/*.js'",
+    "test": "jest --coverage --verbose",
+    "test-watch": "jest --coverage --verbose --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/charmedsatyr-401-advanced-javascript/lab-08.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/charmedsatyr-401-advanced-javascript/lab-08/issues"
+  },
+  "homepage": "https://github.com/charmedsatyr-401-advanced-javascript/lab-08#readme",
+  "dependencies": {
+    "express": "^4.16.4",
+    "mongoose": "^5.4.20",
+    "uuid": "^3.3.2"
+  },
+  "devDependencies": {
+    "babel-eslint": "^10.0.1",
+    "eslint": "^5.15.3",
+    "faker": "^4.1.0",
+    "jest": "^24.5.0",
+    "jsdoc": "^3.5.5",
+    "mongodb-memory-server": "^4.2.1",
+    "supertest": "^4.0.2"
+  }
+}

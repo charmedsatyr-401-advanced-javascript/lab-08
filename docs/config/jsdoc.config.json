@@ -1,0 +1,9 @@
+{
+  "source": {
+    "include": ["./models", "./api-server/src"]
+  },
+  "opts": {
+    "destination": "./docs",
+    "recurse": true
+  }
+}
